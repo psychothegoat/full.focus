@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Deep Work Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#050816">
+
+  <style>
+    body {
+      margin: 0;
+      background: #050816;
+      color: #f5f5f5;
+      font-family: system-ui, sans-serif;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .timer {
+      font-size: 3rem;
+      margin: 1.5rem 0;
+    }
+    button {
+      width: 100%;
+      padding: 1rem;
+      background: #7c3aed;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    .box {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+    }
+  </style>
+
+  <script>
+    let timer = null;
+    let seconds = 0;
+
+    function format() {
+      const m = String(Math.floor(seconds / 60)).padStart(2, "0");
+      const s = String(seconds % 60).padStart(2, "0");
+      return `${m}:${s}`;
+    }
+
+    function start() {
+      if (timer) return;
+      timer = setInterval(() => {
+        seconds++;
+        document.getElementById("display").innerText = format();
+      }, 1000);
+    }
+
+    function stop() {
+      clearInterval(timer);
+      timer = null;
+    }
+
+    function reset() {
+      stop();
+      seconds = 0;
+      document.getElementById("display").innerText = "00:00";
+    }
+
+    function completa() {
+      let count = Number(localStorage.getItem("deepCount") || 0);
+      count++;
+      localStorage.setItem("deepCount", count);
+      document.getElementById("count").innerText = count;
+      reset();
+    }
+
+    function carica() {
+      const count = Number(localStorage.getItem("deepCount") || 0);
+      document.getElementById("count").innerText = count;
+    }
+
+    window.onload = carica;
+  </script>
+</head>
+
+<body>
+  <h1>Deep Work Tracker</h1>
+
+  <div class="timer" id="display">00:00</div>
+
+  <button onclick="start()">Start</button>
+  <button onclick="stop()">Stop</button>
+  <button onclick="reset()">Reset</button>
+  <button onclick="completa()">Segna come completato</button>
+
+  <div class="box">
+    Sessioni completate oggi: <span id="count">0</span>
+  </div>
+</body>
+</html>
