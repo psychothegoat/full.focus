@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Diario – Life Program</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#050816">
+
+  <style>
+    body {
+      margin: 0;
+      background: #050816;
+      color: #f5f5f5;
+      font-family: system-ui, sans-serif;
+      padding: 1.5rem;
+    }
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .box {
+      background: #0a0f1f;
+      border: 1px solid #1f2937;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    textarea, input {
+      width: 100%;
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 8px;
+      padding: 0.7rem;
+      color: #f5f5f5;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+    button {
+      width: 100%;
+      padding: 0.8rem;
+      background: #7c3aed;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+  </style>
+
+  <script>
+    function salva() {
+      const data = {
+        fatto: document.getElementById("fatto").value,
+        deep: document.getElementById("deep").value,
+        distrazioni: document.getElementById("distrazioni").value,
+        emozioni: document.getElementById("emozioni").value,
+        versione: document.getElementById("versione").value,
+        note: document.getElementById("note").value,
+        missioni: document.getElementById("missioni").value,
+        orari: document.getElementById("orari").value,
+        deepDomani: document.getElementById("deepDomani").value,
+        priorita: document.getElementById("priorita").value
+      };
+      localStorage.setItem("diario", JSON.stringify(data));
+    }
+
+    function carica() {
+      const data = JSON.parse(localStorage.getItem("diario"));
+      if (!data) return;
+      for (let key in data) {
+        document.getElementById(key).value = data[key];
+      }
+    }
+
+    function copia() {
+      let testo = "";
+      const campi = ["fatto","deep","distrazioni","emozioni","versione","note","missioni","orari","deepDomani","priorita"];
+      campi.forEach(id => {
+        testo += id.toUpperCase() + ":\n" + document.getElementById(id).value + "\n\n";
+      });
+      navigator.clipboard.writeText(testo);
+      alert("Copiato. Incollalo qui in chat.");
+    }
+
+    window.onload = carica;
+  </script>
+</head>
+
+<body>
+  <h1>Diario Serale</h1>
+
+  <div class="box">
+    <label>Cosa ho fatto davvero oggi?</label>
+    <textarea id="fatto" rows="4" oninput="salva()"></textarea>
+  </div>
+
+  <div class="box">
+    <label>Quanto deep work ho fatto?</label>
+    <input id="deep" oninput="salva()">
+  </div>
+
+  <div class="box">
+    <label>Dove mi sono distratto?</label>
+    <textarea id="distrazioni" rows="3" oninput="salva()"></textarea>
+  </div>
+
+  <div class="box">
+    <label>Come mi sono comportato emotivamente?</label>
+    <textarea id="emozioni" rows="3" oninput="salva()"></textarea>
+  </div>
+
+  <div class="box">
+    <label>Versione nuova o vecchia?</label>
+    <input id="versione" oninput="salva()">
+  </div>
+
+  <div class="box">
+    <label>Note veloci</label>
+    <textarea id="note" rows="3" oninput="salva()"></textarea>
+  </div>
+
+  <h1>Pianificazione di domani</h1>
+
+  <div class="box">
+    <label>Le 3 missioni principali</label>
+    <textarea id="missioni" rows="3" oninput="salva()"></textarea>
+  </div>
+
+  <div class="box">
+    <label>Orari importanti</label>
+    <textarea id="orari" rows="2" oninput="salva()"></textarea>
+  </div>
+
+  <div class="box">
+    <label>Deep work di domani</label>
+    <textarea id="deepDomani" rows="2" oninput="salva()"></textarea>
+  </div>
+
+  <div class="box">
+    <label>Priorità assoluta</label>
+    <input id="priorita" oninput="salva()">
+  </div>
+
+  <button onclick="copia()">Copia tutto</button>
+</body>
+</html>
