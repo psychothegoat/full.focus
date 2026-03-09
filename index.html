@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <p><a href="diario.html" style="color:#a5b4fc;">Diario serale</a></p>
-<p><a href="deepwork.html" style="color:#a5b4fc;">Deep Work Tracker</a></p>
   <meta charset="UTF-8" />
   <title>Life Program – Filippo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,7 +9,7 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <meta name="theme-color" content="#050816" />
 
-  <!-- Icona (sostituisci con la tua) -->
+  <!-- Icona -->
   <link rel="icon" href="icon-192.png" />
 
   <style>
@@ -53,12 +51,6 @@
       line-height: 1.5;
       font-size: 0.95rem;
     }
-    code {
-      background: #111827;
-      padding: 0.1rem 0.3rem;
-      border-radius: 4px;
-      font-size: 0.85rem;
-    }
     ul {
       padding-left: 1.2rem;
     }
@@ -96,10 +88,15 @@
       border-top: 1px solid #111827;
       padding-top: 1rem;
     }
+    .nav-links a {
+      color: #a5b4fc;
+      margin-right: 1rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
   </style>
 
   <script>
-    // Registra il service worker per la PWA
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js');
@@ -107,6 +104,7 @@
     }
   </script>
 </head>
+
 <body>
   <header>
     <div class="tag">Life Program</div>
@@ -114,9 +112,15 @@
     <p style="margin:0.3rem 0 0;font-size:0.85rem;color:#9ca3af;">
       Routine, deep work, dopamina, aura, disciplina. Tutto in un’unica pagina.
     </p>
+
+    <div class="nav-links" style="margin-top:1rem;">
+      <a href="diario.html">📘 Diario serale</a>
+      <a href="deepwork.html">⏱️ Deep Work Tracker</a>
+    </div>
   </header>
 
   <main>
+
     <section class="section-box">
       <h2>1. Dati di base</h2>
       <p><span class="pill">Sveglia 5:30 (lun–ven)</span> <span class="pill">Nanna 22:00</span></p>
@@ -131,21 +135,20 @@
       <ul>
         <li><strong>5:30</strong> – Sveglia immediata, niente telefono per 30 minuti.</li>
         <li><strong>Letto + acqua</strong> – Ordine esterno = ordine interno.</li>
-        <li><strong>Doccia fredda</strong> – 30–60 secondi, allenamento di durezza mentale.</li>
+        <li><strong>Doccia fredda</strong> – 30–60 secondi.</li>
         <li><strong>10 minuti movimento</strong> – Stretching + push-up/squat.</li>
-        <li><strong>10 pagine lettura</strong> – Crescita personale o studio leggero.</li>
-        <li><strong>3 missioni del giorno</strong> – Scrivi i 3 compiti principali.</li>
+        <li><strong>10 pagine lettura</strong>.</li>
+        <li><strong>3 missioni del giorno</strong>.</li>
       </ul>
     </section>
 
     <section class="section-box">
       <h2>3. Bus – Andata (&gt;1h)</h2>
-      <h3>Struttura</h3>
       <ul>
-        <li><strong>5 min</strong> – Respirazione calma, nessuna musica.</li>
-        <li><strong>10–15 min</strong> – Micro-sonno con la tua playlist (va bene).</li>
-        <li><strong>2–5 min</strong> – Riattivazione: respiri profondi, muovi collo/spalle, guarda fuori.</li>
-        <li><strong>Ultimi minuti</strong> – Active Recall mentale su ciò che hai studiato ieri.</li>
+        <li><strong>5 min</strong> – Respirazione calma.</li>
+        <li><strong>10–15 min</strong> – Micro-sonno.</li>
+        <li><strong>2–5 min</strong> – Riattivazione.</li>
+        <li><strong>Ultimi minuti</strong> – Active Recall.</li>
         <li><strong>Resto</strong> – Musica chill, niente social.</li>
       </ul>
     </section>
@@ -153,46 +156,36 @@
     <section class="section-box">
       <h2>4. Scuola</h2>
       <ul>
-        <li><strong>Postura aperta</strong>, movimenti lenti.</li>
-        <li><strong>Sguardo stabile</strong>, niente sguardo sfuggente.</li>
-        <li><strong>Riservatezza</strong> – Regola del 50%: condividi la metà.</li>
-        <li><strong>Ascolta molto, parla poco</strong>.</li>
+        <li>Postura aperta.</li>
+        <li>Sguardo stabile.</li>
+        <li>Riservatezza (regola del 50%).</li>
+        <li>Ascolta molto, parla poco.</li>
       </ul>
     </section>
 
     <section class="section-box">
       <h2>5. Rientro + pranzo</h2>
       <ul>
-        <li>Reset fisico: cambia vestiti, lavati il viso.</li>
+        <li>Reset fisico.</li>
         <li>Niente telefono per 20 minuti.</li>
-        <li>Pranzo in calma, senza scroll.</li>
+        <li>Pranzo in calma.</li>
       </ul>
     </section>
 
     <section class="section-box">
       <h2>6. Studio pomeridiano – Deep Work</h2>
-      <h3>Cos’è il deep work</h3>
-      <p>Concentrazione totale su un solo compito, senza telefono, senza notifiche, senza multitasking.</p>
-      <h3>Struttura</h3>
       <ul>
-        <li><strong>Blocco 1</strong> – 45–60 min deep work.</li>
-        <li><strong>Pausa</strong> – 10 min, niente telefono.</li>
-        <li><strong>Blocco 2</strong> – 45–60 min deep work.</li>
-        <li><strong>Blocco 3 (opzionale)</strong> – 30 min su punto debole.</li>
-      </ul>
-      <h3>Regole</h3>
-      <ul>
-        <li>Telefono in un’altra stanza.</li>
-        <li>Timer attivo.</li>
-        <li>Un solo compito.</li>
-        <li>Output-first: prima produci, poi ripassi.</li>
+        <li><strong>Blocco 1</strong> – 45–60 min.</li>
+        <li><strong>Pausa</strong> – 10 min.</li>
+        <li><strong>Blocco 2</strong> – 45–60 min.</li>
+        <li><strong>Blocco 3</strong> – 30 min (opzionale).</li>
       </ul>
     </section>
 
     <section class="section-box">
       <h2>7. Palestra (lun–mer–ven)</h2>
       <ul>
-        <li>Allenamento breve ma intenso.</li>
+        <li>Allenamento breve e intenso.</li>
         <li>Musica energica solo qui.</li>
         <li>Niente telefono tra le serie.</li>
       </ul>
@@ -201,30 +194,30 @@
     <section class="section-box">
       <h2>8. Bus – Ritorno (~40 min)</h2>
       <ul>
-        <li><strong>10 min</strong> – Decompressione con playlist.</li>
-        <li><strong>5–10 min</strong> – Micro-sonno breve.</li>
+        <li><strong>10 min</strong> – Decompressione.</li>
+        <li><strong>5–10 min</strong> – Micro-sonno.</li>
         <li><strong>2–5 min</strong> – Riattivazione.</li>
-        <li><strong>Ultimi minuti</strong> – Pianifica mentalmente il pomeriggio.</li>
+        <li><strong>Ultimi minuti</strong> – Pianificazione mentale.</li>
       </ul>
     </section>
 
     <section class="section-box">
       <h2>9. Disciplina emotiva e aura</h2>
       <ul>
-        <li>Movimenti lenti, voce calma e più bassa.</li>
-        <li>Regola dei 3 secondi prima di rispondere.</li>
-        <li>Silenzio strategico nelle conversazioni inutili.</li>
-        <li>Riservatezza: meno spiegazioni, meno giustificazioni.</li>
+        <li>Movimenti lenti.</li>
+        <li>Voce calma.</li>
+        <li>Regola dei 3 secondi.</li>
+        <li>Silenzio strategico.</li>
       </ul>
     </section>
 
     <section class="section-box">
       <h2>10. Dopamina e telefono</h2>
       <ul>
-        <li>Niente telefono al mattino.</li>
-        <li>Niente telefono durante studio e pasti.</li>
-        <li>Obiettivo: max 2 ore al giorno (scendendo gradualmente).</li>
-        <li>Ogni volta che vuoi scrollare → 2 minuti di output (studio, ordine, appunti).</li>
+        <li>No telefono al mattino.</li>
+        <li>No telefono durante studio e pasti.</li>
+        <li>Obiettivo: max 2h al giorno.</li>
+        <li>Ogni voglia di scroll → 2 min di output.</li>
       </ul>
     </section>
 
@@ -232,30 +225,30 @@
       <h2>11. Sera (21:00 → 22:00)</h2>
       <ul>
         <li>20:30 – Stop social.</li>
-        <li>21:00 – Preparazione per domani (vestiti, zaino, materiali).</li>
-        <li>21:10 – 3 cose per cui sei grato.</li>
-        <li>21:15 – Riflessione: dove hai vinto, dove hai perso.</li>
-        <li>21:20 – Lettura leggera.</li>
+        <li>21:00 – Preparazione per domani.</li>
+        <li>21:10 – Gratitudine.</li>
+        <li>21:15 – Riflessione.</li>
+        <li>21:20 – Lettura.</li>
         <li>22:00 – Sonno.</li>
       </ul>
     </section>
 
     <section class="section-box">
       <h2>12. Regola del check quotidiano</h2>
-      <p>Ogni sera, nel dialogo con me, rispondi a:</p>
       <ol>
         <li>Cosa ho fatto davvero oggi?</li>
         <li>Ho rispettato la mattina?</li>
         <li>Quanto deep work ho fatto?</li>
         <li>Dove mi sono distratto?</li>
         <li>Come mi sono comportato emotivamente?</li>
-        <li>Ho agito come la versione nuova o quella vecchia di me?</li>
+        <li>Versione nuova o vecchia?</li>
       </ol>
     </section>
 
     <p class="footer-note">
-      Questo sito è il tuo “manuale personale”. Ogni giorno lo vivi, non lo leggi soltanto.
+      Questo sito è il tuo manuale personale. Ogni giorno lo vivi, non lo leggi soltanto.
     </p>
+
   </main>
 </body>
 </html>
